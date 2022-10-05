@@ -1,0 +1,37 @@
+<form
+[formGroup]="weatherSearchForm"
+(ngSubmit)="sendToAPIXU(weatherSearchForm.value)"
+>
+<div class="search">
+  <input
+    class="form-control"
+    type="text"
+    class="search-input"
+    
+    aria-describedby="weatherLocation"
+    placeholder="Please input a Location"
+    formControlName="location"
+  />
+</div>
+<div class="text-center">
+  <button type="submit" class="searchButton">
+    Search for the weather
+  </button>
+</div>
+</form>
+<div class="container" >
+    <div class="upper-data">
+        <img src="../assets/summer.jpg" *ngIf="weatherData?.current?.temperature>15">
+        <img src="../assets/winter.jpg" *ngIf="weatherData?.current?.temperature<15">
+    
+        <div class="weather-data">
+        <!-- <div class="location">Goa</div> -->
+        <div class="temperature">  {{ temp }}</div>
+        <div class="location">  {{ weatherData?.location.name}}</div>
+        <div class="location">  {{ weatherData?.location.country}}</div>
+
+        </div>
+    </div>
+    
+    
+</div>

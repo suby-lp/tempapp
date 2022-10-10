@@ -24,6 +24,12 @@ export class AppComponent implements OnInit {
   }
 
   sendToAPIXU(formValues) {
+    if(formValues.location==="")
+    {
+      alert("Please enter a location")
+    }
+    else{
+    console.log(formValues.location);
     this.apixuService.getWeather(formValues.location).subscribe(data => {
   
       this.weatherData = data;
@@ -34,5 +40,6 @@ export class AppComponent implements OnInit {
     
     });
   }
+}
   }
   
